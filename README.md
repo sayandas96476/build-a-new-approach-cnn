@@ -12,9 +12,10 @@ one = Flatten()(one)
 one = Dense(64,activation='relu')(one)
 one = Dense(10,activation='sigmoid')(one)
 model = Model(image_input, one)
-
-
-
-
-
 model.summary()
+
+
+
+model.compile(optimizer='SGD',
+            loss='sparse_categorical_crossentropy',metrics=['accuracy']  )
+model.fit(X_train, y_train, epochs=5)
